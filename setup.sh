@@ -17,7 +17,7 @@ fi
 
 if [ command -v autotiling &> /dev/null ];
 then
-  yay -S autotiling
+  yay -S --noconirm autotiling
   echo -e "\e[92mSuccesfully Installed Autotiling\e[0m"
 fi
 
@@ -33,13 +33,19 @@ then
   echo -e "\e[92mSuccesfully Installed GitHub CLI\e[0m"
 fi
 
-if ! gh auth status >/dev/null 2>&1
+if [ ! gh auth status >/dev/null 2>&1 ];
 then
   git config --global user.name "thederpykrafter"
   git config --global user.email thederpykrafter@gmail.com
   git config --global init.defaultBranch main
   gh auth login
-  echo -e "\e[94mSuccesfully configured git\e[0m"
+  echo -e "\e[94mSuccesfully configured Git\e[0m"
+fi
+
+if [ command -v github-desktop ];
+then
+  yay -S github-desktop-bin --noconfirm
+  echo -e "\e[94mSuccesfully installled GitHub Desktop\e[0m"
 fi
 
 echo -e "\e[91m************************************\e[92m"
