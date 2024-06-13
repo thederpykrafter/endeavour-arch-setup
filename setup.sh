@@ -71,13 +71,7 @@ then
   echo -e "\e[94mSuccesfully installled GitHub Desktop\e[0m"
 fi
 
-echo -e "\e[91m************************************\e[92m"
-echo "Select Firefox profile parent folder"
-echo "(ends with .default or .default-release)"
-echo "Press <ENTER> to continue"
-echo -e "\e[91m************************************\e[0m"
-read -e
-ff_profile=$(find ~/.mozilla/firefox -type d -print -maxdepth 1 | fzf)
+ff_profile=$(find ~/.mozilla/firefox -maxdepth 1 -type d -print | grep -m1 default)
 
 if [ ! -d $ff_profile/.git ]; then
 	git clone git@github.com:thederpykrafter/firefox $ff_profile/ff_theme
@@ -128,28 +122,26 @@ if [ ! -d /usr/share/grub/themes/stylish ]; then
   rm -rf ~/grub2-themes-2022-10-30/
   echo -e "\e[94mGrub theme installed" 
   echo -e "Grub wallpaper changed\e[0m"
-else
-  echo -e "\e[94mGrub theme already configured\e[0m" 
-fi
 
-sudo cat /etc/default/grub | grep "GRUB_DISABLE_OS_PROBER=false"
-echo -e "\e[92m"
-PS3="Modify Grub OSProber config?"
-select option in Boot-Entries OS-Prober Continue
-do
-  case $option in
-    Os-Prober)
-      sudo nano /etc/default/grub
-      ;;
-    Boot-Entries)
-      sudo grub-customizer
-      ;;
-    *)
-      break
-      ;;
-  esac
-done
-echo -e "\e[0m"
+  sudo cat /etc/default/grub | grep "GRUB_DISABLE_OS_PROBER=false"
+  echo -e "\e[92m"
+  PS3="Modify Grub OSProber config?"
+  select option in Boot-Entries OS-Prober Continue
+  do
+    case $option in
+      Os-Prober)
+        sudo nano /etc/default/grub
+        ;;
+      Boot-Entries)
+        sudo grub-customizer
+        ;;
+      *)
+        break
+        ;;
+    esac
+  done
+  echo -e "\e[0m"
+fi
 
 if [ ! -d ~/.oh-my-zsh ]; then
 	echo -e "\e[91m** EXIT ZSH TO CONTINUE INSTALL"
@@ -161,8 +153,6 @@ if [ ! -d ~/.oh-my-zsh ]; then
 	rm -rf ~/.bash_logout
 	rm -rf ~/.profile
 	echo -e "\e[94mSuccesfully installed oh-my-zsh\e[0m"
-else
-	echo -e "\e[94moh-my-zsh already installed\e[0m"
 fi
 
 if [ ! -f ~/.oh-my-zsh/custom/shell.zsh ]; then
@@ -170,8 +160,6 @@ if [ ! -f ~/.oh-my-zsh/custom/shell.zsh ]; then
 	rm -rf ~/.oh-my-zsh/custom
 	git clone git@github.com:thederpykrafter/zsh ~/.oh-my-zsh/custom
 	echo -e "\e[94mzsh config cloned\e[0m"
-else
-	echo -e "\e[94mzsh config already setup\e[0m"
 fi
 
 sudo pacman -Syy
@@ -180,6 +168,7 @@ sudo pacman -Syu
 if [ ! -f setup/setup.sh ];
 then
   git clone git@github.com:thederpykrafter/endeavour-arch-setup ~/setup
+  echo -e "\e[94mSetup script cloned\[0m"
 fi
 
 configs="alacritty nvim termux-nvim picom"
@@ -189,6 +178,7 @@ do
   if [ ! -d ~/.config/$cfg ];
   then
     git clone git@github.com:thederpykrafter/$cfg ~/.config/$cfg
+    echo -e "\e[94m$cfg config cloned\[0m"
   fi
 done
 
@@ -196,4 +186,5 @@ if [ ! -f ~/.config/i3/i3-lock-screen.png ];
 then
   rm -rf ~/.conig/i3
   git clone git@github.com:thederpykrafter/endeavour-i3 ~/.config/i3
+  echo -e "\e[94mi3 config cloned\[0m"
 fi
