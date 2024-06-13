@@ -181,3 +181,19 @@ if [ ! -f setup/setup.sh ];
 then
   git clone git@github.com:thederpykrafter/endeavour-arch-setup ~/setup
 fi
+
+configs="alacritty nvim termux-nvim picom"
+
+for cfg in $configs
+do
+  if [ ! -d ~/.config/$cfg ];
+  then
+    git clone git@github.com:thederpykrafter/$cfg ~/.config/$cfg
+  fi
+done
+
+if [ ! -f ~/.config/i3/i3-lock-screen.png ];
+then
+  rm -rf ~/.conig/i3
+  git clone git@github.com:thederpykrafter/endeavour-i3 ~/.config/i3
+fi
