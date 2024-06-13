@@ -29,6 +29,10 @@ then
   nvm use node
   echo -e "\e[92mSuccesfully Installed Node\e[0m"
 fi
+
+# check for neovim package from npm
+npm list -g | grep neovim ||npm i -g neovim
+
 if [ command -v blueman-manager &> /dev/null ];
 then
   sudo pacman -S --noconfirm blueman bluez
