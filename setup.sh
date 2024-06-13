@@ -3,13 +3,14 @@
 sudo pacman -Syy
 sudo pacman -Syu
 
-packages="alacritty picom brightnessctl zsh lazygit curl wget unzip lsd fzf fd ripgrep xdotool gpick htop grub-customizer xss-lock rust go zig ocaml"
+packages="alacritty picom brightnessctl zsh lazygit curl wget unzip lsd neofetch fzf fd ripgrep xdotool gpick htop grub-customizer xss-lock rust go zig ocaml"
 for pkg in $packages
 do
-  if [ command -v $pkg &> /dev/null ];
+  if pacman -Qs $pkg > /dev/null;
   then
+    echo -n ""
+  else
     sudo pacman -S --noconfirm $pkg
-    echo -e "\e[92mSuccesfully Installed $pkg\e[0m"
   fi
 done
 
