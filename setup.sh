@@ -206,11 +206,12 @@ then
   git clone git@github.com:thederpykrafter/learning-go ~/Dev/go/learning-go
 fi
 
-if [ ! -d ~/Documents/Notes/.git ];
+if [ ! -f ~/Documents/Notes/.obsidian.vimrc ];
 then
-  git clone git@github.com:thederpykrafter/Obsidian ~/Documents/Notes/Obsidian
-  mv ~/Documents/Notes/Obsidian/.git ~/Documents/Notes
-  mv ~/Documents/Notes/Obsidian/.obsidian.vimrc ~/Documents/Notes
-  mv ~/Documents/Notes/Obsidian/README.md ~/Documents/Notes
-  rm -rf ~/Documents/Notes/Obsidian
+  if [ ! -d ~/Documents/Notes ];
+  then
+    mkdir ~/Documents/Notes
+  fi
+  git clone git@github.com:thederpykrafter/Obsidian ~/Documents/Notes/_config
+  ln -sf ~/Documents/Notes/_config/.obsidian.vimrc ~/Documents/Notes/.obsidian.vimrc
 fi
