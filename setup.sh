@@ -1,6 +1,6 @@
 #!/bin/bash
 
-packages="alacritty picom brightnessctl zsh lazygit curl wget unzip lsd fzf fd ripgrep xdotool gpick htop"
+packages="alacritty picom brightnessctl zsh lazygit curl wget unzip lsd fzf fd ripgrep xdotool gpick htop grub-customizer"
 for pkg in $packages
 do
   if [ command -v $pkg &> /dev/null ];
@@ -48,7 +48,7 @@ echo "(ends with .default or .default-release)"
 echo "Press <ENTER> to continue"
 echo -e "\e[91m************************************\e[0m"
 read -e
-ff_profile=$(find .mozilla/firefox -type d -print -maxdepth 1 | fzf)
+ff_profile=$(find ~/.mozilla/firefox -type d -print -maxdepth 1 | fzf)
 
 if [ ! -d $ff_profile/.git ]; then
 	git clone git@github.com:thederpykrafter/firefox $ff_profile/ff_theme
@@ -111,6 +111,7 @@ do
   case $option in
     Modify)
       sudo nano /etc/default/grub
+      sudo grub-customizer
       ;;
     *)
       break
