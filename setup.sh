@@ -23,6 +23,12 @@ then
   echo -e "\e[92mSuccesfully Installed nvm\e[0m"
 fi
 
+if [ command -v node &> /dev/null ];
+then
+  nvm install node
+  nvm use node
+  echo -e "\e[92mSuccesfully Installed Node\e[0m"
+fi
 if [ command -v blueman-manager &> /dev/null ];
 then
   sudo pacman -S --noconfirm blueman bluez
