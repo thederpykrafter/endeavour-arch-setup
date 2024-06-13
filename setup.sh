@@ -193,7 +193,7 @@ fi
 if [ ! -d ~/Dev ];
 then
   mkdir ~/Dev
-  dev_folders="go rust ocaml zig"
+  dev_folders="go rust ocaml zig javascript"
   for folder in $dev_folders
   do
     mkdir ~/Dev/$folder
