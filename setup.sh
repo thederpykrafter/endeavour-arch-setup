@@ -193,9 +193,24 @@ fi
 if [ ! -d ~/Dev ];
 then
   mkdir ~/Dev
-  dev_folders="go rust ocaml zig javascript"
+  dev_folders="go rust ocaml zig js sh"
   for folder in $dev_folders
   do
     mkdir ~/Dev/$folder
   done
+
+  git clone git@github.com:thederpykrafter/thederpykrafter ~/Dev/thederpykrafter-GH
+  git clone git@github.com:thederpykrafter/tdk-portfolio ~/Dev/js/tdk-portfolio
+  git clone git@github.com:thederpykrafter/termux-scripts ~/Dev/sh/termux-scripts
+  git clone git@github.com:thederpykrafter/hello_ocaml ~/Dev/ocaml/hello_ocaml
+  git clone git@github.com:thederpykrafter/learning-go ~/Dev/go/learning-go
+fi
+
+if [ ! -d ~/Documents/Notes/.git ];
+then
+  git clone git@github.com:thederpykrafter/Obsidian ~/Documents/Notes/Obsidian
+  mv ~/Documents/Notes/Obsidian/.git ~/Documents/Notes
+  mv ~/Documents/Notes/Obsidian/.obsidian.vimrc ~/Documents/Notes
+  mv ~/Documents/Notes/Obsidian/README.md ~/Documents/Notes
+  rm -rf ~/Documents/Notes/Obsidian
 fi
