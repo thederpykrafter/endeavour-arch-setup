@@ -1,5 +1,8 @@
 #!/bin/bash
 
+sudo pacman -Syy
+sudo pacman -Syu
+
 packages="alacritty picom brightnessctl zsh lazygit curl wget unzip lsd fzf fd ripgrep xdotool gpick htop grub-customizer xss-lock"
 for pkg in $packages
 do
@@ -150,3 +153,6 @@ if [ ! -f ~/.oh-my-zsh/custom/shell.zsh ]; then
 else
 	echo -e "\e[94mzsh config already setup\e[0m"
 fi
+
+sudo pacman -Syy
+sudo pacman -Syu
