@@ -13,6 +13,11 @@ do
   fi
 done
 
+if [ command -v nvm ];
+then
+  yay -S --noconfirm nvm
+fi
+
 if [ command -v blueman-manager &> /dev/null ];
 then
   sudo pacman -S --noconfirm blueman bluez
