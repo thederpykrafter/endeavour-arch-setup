@@ -13,9 +13,14 @@ do
   fi
 done
 
-if [ command -v nvm ];
+if [ command -v nvm &> /dev/null ];
 then
   yay -S --noconfirm nvm
+  [ -z "$NVM_DIR" ] && export NVM_DIR="$HOME/.nvm"
+  source /usr/share/nvm/nvm.sh
+  source /usr/share/nvm/bash_completion
+  source /usr/share/nvm/install-nvm-exec
+  echo -e "\e[92mSuccesfully Installed nvm\e[0m"
 fi
 
 if [ command -v blueman-manager &> /dev/null ];
