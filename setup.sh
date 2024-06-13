@@ -106,11 +106,13 @@ fi
 sudo cat /etc/default/grub | grep "GRUB_DISABLE_OS_PROBER=false"
 echo -e "\e[92m"
 PS3="Modify Grub OSProber config?"
-select option in Modify Continue
+select option in Boot-Entries OS-Prober Continue
 do
   case $option in
-    Modify)
+    Os-Prober)
       sudo nano /etc/default/grub
+      ;;
+    Boot-Entries)
       sudo grub-customizer
       ;;
     *)
