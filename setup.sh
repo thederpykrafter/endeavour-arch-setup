@@ -3,7 +3,7 @@
 sudo pacman -Syy
 sudo pacman -Syu
 
-packages="alacritty picom brightnessctl zsh lazygit curl wget unzip lsd fzf fd ripgrep xdotool gpick htop grub-customizer xss-lock rust"
+packages="alacritty picom brightnessctl zsh lazygit curl wget unzip lsd fzf fd ripgrep xdotool gpick htop grub-customizer xss-lock rust go"
 for pkg in $packages
 do
   if [ command -v $pkg &> /dev/null ];
