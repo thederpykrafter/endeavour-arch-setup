@@ -78,6 +78,7 @@ then
   echo -e "\e[91mPress enter to continue...\e[0m"
   read -e
   arandr
+  sudo chmod a+x ~/.screenlayout/monitor.sh
 fi
 
 if [ ! -d /usr/share/grub/themes/stylish ]; then
