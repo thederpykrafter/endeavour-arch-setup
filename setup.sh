@@ -10,7 +10,7 @@ do
   fi
 done
 
-if [ command -v blueman-manager ];
+if [ command -v blueman-manager &> /dev/null ];
 then
   sudo pacman -S --noconfirm blueman bluez
 fi
