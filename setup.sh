@@ -32,7 +32,7 @@ then
 fi
 
 # check for neovim package from npm
-npm list -g | grep neovim ||npm i -g neovim
+npm list -g | grep neovim || npm i -g neovim
 
 if [ command -v blueman-manager &> /dev/null ];
 then
