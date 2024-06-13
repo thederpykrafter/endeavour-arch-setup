@@ -176,3 +176,8 @@ fi
 
 sudo pacman -Syy
 sudo pacman -Syu
+
+if [ ! -f setup/setup.sh ];
+then
+  git clone git@github.com:thederpykrafter/endeavour-arch-setup ~/setup
+fi
