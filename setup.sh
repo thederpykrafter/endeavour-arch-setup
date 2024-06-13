@@ -65,7 +65,7 @@ then
   echo -e "\e[94mSuccesfully configured Git\e[0m"
 fi
 
-if [ command -v github-desktop ];
+if [ command -v github-desktop &> /dev/null ];
 then
   yay -S github-desktop-bin --noconfirm
   echo -e "\e[94mSuccesfully installled GitHub Desktop\e[0m"
