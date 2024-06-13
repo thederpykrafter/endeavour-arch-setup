@@ -189,3 +189,13 @@ then
   git clone git@github.com:thederpykrafter/endeavour-i3 ~/.config/i3
   echo -e "\e[94mi3 config cloned\[0m"
 fi
+
+if [ ! -d ~/Dev ];
+then
+  mkdir ~/Dev
+  dev_folders="go rust ocaml zig"
+  for folder in $dev_folders
+  do
+    mkdir ~/Dev/$folder
+  done
+fi
