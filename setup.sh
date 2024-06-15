@@ -166,12 +166,6 @@ fi
 sudo pacman -Syy
 sudo pacman -Syu
 
-if [ ! -f setup/setup.sh ];
-then
-  git clone git@github.com:thederpykrafter/endeavour-arch-setup ~/setup
-  echo -e "\e[94mSetup script cloned\[0m"
-fi
-
 configs="alacritty nvim termux-nvim picom"
 
 for cfg in $configs
@@ -204,6 +198,7 @@ then
   git clone git@github.com:thederpykrafter/termux-scripts ~/Dev/sh/termux-scripts
   git clone git@github.com:thederpykrafter/hello_ocaml ~/Dev/ocaml/hello_ocaml
   git clone git@github.com:thederpykrafter/learning-go ~/Dev/go/learning-go
+  git clone git@github.com:thederpykrafter/endeavour-arch-setup ~/Dev/sh/setup
 fi
 
 if [ ! -f ~/Documents/Notes/.obsidian.vimrc ];
