@@ -179,7 +179,7 @@ do
   then
     rm -rf ~/.config/$cfg
     git clone git@github.com:thederpykrafter/$cfg ~/.config/$cfg
-    echo -e "\e[94m$cfg config cloned\[m"
+    echo -e "\e[94m$cfg config cloned\e[m"
   fi
 done
 
